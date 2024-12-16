@@ -11,7 +11,7 @@ public class HamsterCollecter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateCount();
     }
 
     // Update is called once per frame
@@ -22,6 +22,16 @@ public class HamsterCollecter : MonoBehaviour
 
     public void UpdateCount()
     {
-        hamsterDisplay.text = $"Hamster's Collected: {numberOfHamsters}";
+        StartCoroutine(DelayedCount());
     }
+
+    public IEnumerator DelayedCount()
+    {
+        yield return new WaitForEndOfFrame();
+
+        numberOfHamsters = GameObject.FindGameObjectsWithTag("Hamster").Length;
+        hamsterDisplay.text = $"Hamster's Left: {numberOfHamsters}";
+    }
+    
+
 }

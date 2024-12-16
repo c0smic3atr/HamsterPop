@@ -20,8 +20,9 @@ public class Collectable : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            GameObject.Find("HamsterCollecterManager").GetComponent<HamsterCollecter>().UpdateCount();
             Destroy(gameObject);
-            GameObject.Find("Collectable").GetComponent<HamsterCollecter>().UpdateCount();
+            Debug.Log("hamster collected!");
         }
     }
 

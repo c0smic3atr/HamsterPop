@@ -26,4 +26,5 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         rb.AddRelativeForce(Vector3.forward * moveSpeed * verticalInput);
     }
+
 }
