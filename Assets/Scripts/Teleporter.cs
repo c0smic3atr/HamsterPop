@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Teleporter : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Teleporter : MonoBehaviour
     public string nextLevel;
 
     public bool canTeleport = false;
+
+    public TextMeshProUGUI doorOpenDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class Teleporter : MonoBehaviour
         {
             canTeleport = true;
             Debug.Log("TELEPORTER IS ACTIVE!!");
+            doorOpenDisplay.gameObject.SetActive(true);
         }
     }
 
