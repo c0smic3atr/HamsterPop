@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class Teleporter : MonoBehaviour
 {
     public GameObject player;
+    public string nextLevel;
+
+    public bool canTeleport = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +21,20 @@ public class Teleporter : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        if(GameObject.FindGameObjectsWithTag("Hamster").Length <= 0)
+        {
+            canTeleport = true;
+            Debug.Log("TELEPORTER IS ACTIVE!!");
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && canTeleport)
         {
-            SceneManager.LoadScene("SecondLevel");
+            SceneManager.LoadScene(nextLevel);
         }
     }
 }

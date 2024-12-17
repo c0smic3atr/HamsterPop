@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2034346241}
+  nextLevel: SecondLevel
+  canTeleport: 0
 --- !u!65 &243513869
 BoxCollider:
   m_ObjectHideFlags: 0
