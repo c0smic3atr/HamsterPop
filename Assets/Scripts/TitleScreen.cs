@@ -14,9 +14,14 @@ public class TitleScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetButtonDown("Jump"))
         {
             SceneManager.LoadScene("FirstLevel");
+        }
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Application.Quit();
         }
     }
 }
